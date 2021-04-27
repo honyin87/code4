@@ -15,6 +15,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="grid">
+                  <?php echo get_msg();?>
                   <div class="grid-header">
                    
                     <p>
@@ -22,6 +23,7 @@
                     <p>
                    
                   </div>
+                  
                   <div class="item-wrapper">
                     <div class="row">
                       <div class="col-lg-12">
@@ -93,10 +95,8 @@
                                     <a class="" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="mdi mdi-dots-vertical mdi-1x"></i>
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                      <button class="dropdown-item" type="button">Action</button>
-                                      <button class="dropdown-item" type="button">Another action</button>
-                                      <button class="dropdown-item" type="button">Something else here</button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                                      <a class="dropdown-item" href="<?php echo base_url().'/user/form/'.wrap_data(array('user_id'=>$item->id));?>">Edit User</a>
                                     </div>
                                   </div>
                               </td>

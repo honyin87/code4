@@ -102,11 +102,11 @@ if($session->has('user')){
               <i class="mdi mdi-flower-tulip-outline link-icon"></i>
             </a>
           </li>
-          <li class="nav-category-divider">DOCS</li>
+          <li class="nav-category-divider">ACCOUNT</li>
           <li>
-            <a href="<?php echo base_url();?>/docs/docs.html">
-              <span class="link-title">Documentation</span>
-              <i class="mdi mdi-asterisk link-icon"></i>
+            <a href="<?php echo base_url().'/auth/logout';?>">
+              <span class="link-title">Logout</span>
+              <i class="mdi mdi-logout link-icon"></i>
             </a>
           </li>
         </ul>

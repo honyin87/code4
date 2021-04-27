@@ -86,11 +86,10 @@ class Auth_m extends Model
         
         $query = $this->db->query($sql);
         
-        
+        $data['total_rows']  = $query->getNumRows();
+
         if($query->getNumRows() > 0){
             
-            $data['total_rows'] = $query->getNumRows();
-
             $sql.= " LIMIT ".PER_PAGE. " OFFSET ".($page-1)*PER_PAGE;
             $query = $this->db->query($sql);
 

@@ -62,19 +62,12 @@ if(!function_exists("get_msg")) {
 
 			$session->remove('sys_msg');
 
-			
-
 			foreach($data as $item){
 
-
-
 				$msg = "<div class='alert alert-".$item['type']." dismissible-alert' role='alert'>".$item['msg']."<i class='alert-close mdi mdi-close'></i></div>";
-
 				  
 				echo $msg;
 			}
-
-			
 
 		}
 
@@ -213,6 +206,22 @@ if(!function_exists("get_config_value_item")) {
 			return $config_m->get_config_value_item($code);
 
 		}
+		
+	}
+}
+
+if(!function_exists("wrap_data")) {
+	function wrap_data($data) {
+		
+		return base64_encode(json_encode($data));
+		
+	}
+}
+
+if(!function_exists("unwrap_data")) {
+	function unwrap_data($data) {
+		
+		return json_decode(base64_decode($data));
 		
 	}
 }

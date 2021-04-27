@@ -90,10 +90,10 @@ class Sys_m extends Model
         $sql[] = "INSERT INTO `".DB_PREFIX."users` (`id`, `email`, `username`, `firstname`, `lastname`, `password`, `contact_no`, `verified`, `status`, `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, '', 'admin', 'Default', 'Administrator', '20beaf3b3ce9ae10dc8c880a877723dc', '', '1', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
 
-        $sql[] = "INSERT INTO `tbl_roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
+        $sql[] = "INSERT INTO `".DB_PREFIX."roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, 'Super Admininistrator', 'has root access to this system', '1', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
 
-        $sql[] = "INSERT INTO `tbl_user_role` (`id`, `user_id`, `role_id`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
+        $sql[] = "INSERT INTO `".DB_PREFIX."user_role` (`id`, `user_id`, `role_id`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, '1', '1', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
 
 
@@ -101,11 +101,11 @@ class Sys_m extends Model
 
         $sql = array();
 
-        $sql[] = "INSERT INTO `tbl_roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
+        $sql[] = "INSERT INTO `".DB_PREFIX."roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, 'Admininistrator', 'has administrator access to this system', '1', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
-        $sql[] = "INSERT INTO `tbl_roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
+        $sql[] = "INSERT INTO `".DB_PREFIX."roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, 'Cashier', 'has access to cashier portal', '2', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
-        $sql[] = "INSERT INTO `tbl_roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
+        $sql[] = "INSERT INTO `".DB_PREFIX."roles` (`id`, `role_name`, `description`, `auth_lvl`, `status` , `create_by`, `create_date`, `update_by`, `update_date`) 
                 VALUES (NULL, 'Waiter', 'has access to cashier portal', '3', '1', '1', '2020-04-30 00:00:00', '1', '2020-04-30 00:00:00')";
 
         $this->base->sql($sql,"2021-04-06 10:00:00");

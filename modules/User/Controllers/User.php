@@ -41,6 +41,19 @@ class User extends BaseController
 	function form($id = ''){
 
 		$data = [];
+
+		$id = unwrap_data($id);
+		
+		// Verify ID structure
+		if(is_object($id)){
+
+			$id = $id->user_id;
+
+		}else{
+			set_msg('Invalid ID');
+			return redirect()->to(base_url('user/listing') ); 
+		}
+
 		
 		$request = service('request');
 

@@ -49,9 +49,9 @@ class Auth extends BaseController
 
 		$session = session();
 
-		if(!$session->has('user')){
+		if($session->has('user')){
 
-			$session->stop();
+			$session->destroy();
 
 			
 		}
