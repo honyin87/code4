@@ -41,9 +41,9 @@ class Sys_m extends Model
                     `contact_no`    VARCHAR(255)    NOT NULL,
                     `verified`      INT(2)          NOT NULL,
                     `status`        INT(2)          NOT NULL,
-                    `create_by`     INT(11)         NOT NULL,
+                    `create_by`     VARCHAR(255)    NOT NULL,
                     `create_date`   DATETIME        NOT NULL,
-                    `update_by`     INT(11)         NOT NULL,
+                    `update_by`     VARCHAR(255)    NOT NULL,
                     `update_date`   DATETIME        NOT NULL,
                     PRIMARY KEY (`id`)
                 )
@@ -57,9 +57,9 @@ class Sys_m extends Model
                     `description`   TEXT            ,
                     `auth_lvl`      INT(2)          NOT NULL,
                     `status`        INT(2)          NOT NULL,
-                    `create_by`     INT(11)         NOT NULL,
+                    `create_by`     VARCHAR(255)    NOT NULL,
                     `create_date`   DATETIME        NOT NULL,
-                    `update_by`     INT(11)         NOT NULL,
+                    `update_by`     VARCHAR(255)    NOT NULL,
                     `update_date`   DATETIME        NOT NULL,
                     PRIMARY KEY (`id`)
                 )
@@ -72,9 +72,9 @@ class Sys_m extends Model
             `user_id`       INT(11)         NOT NULL,
             `role_id`       INT(11)         NOT NULL,
             `status`        INT(2)          NOT NULL,
-            `create_by`     INT(11)         NOT NULL,
+            `create_by`     VARCHAR(255)    NOT NULL,
             `create_date`   DATETIME        NOT NULL,
-            `update_by`     INT(11)         NOT NULL,
+            `update_by`     VARCHAR(255)    NOT NULL,
             `update_date`   DATETIME        NOT NULL,
             PRIMARY KEY (`id`)
         )

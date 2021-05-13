@@ -41,28 +41,53 @@ class User extends BaseController
 	function form($id = ''){
 
 		$data = [];
-
-		$id = unwrap_data($id);
 		
-		// Verify ID structure
-		if(is_object($id)){
+		if(!empty($id)){
 
-			$id = $id->user_id;
+			$id = unwrap_data($id);
+			
+			// Verify ID structure
+			if(is_object($id)){
+	
+				$id = $id->user_id;
+	
+			}else{
+				set_msg('Invalid ID');
+				return redirect()->to(base_url('user/listing') ); 
+			}
 
-		}else{
-			set_msg('Invalid ID');
-			return redirect()->to(base_url('user/listing') ); 
+			// Get User's details
+			$result = $this->user_m->get_user($id);
+			
+			if($result == false){
+				
+				return redirect()->to(base_url('user/listing') ); 
+			}
+
+			// Display No change Password instead
+			$result->password = NO_CHG_PASSWORD;
+
+			$data['enterred'] = json_decode(json_encode($result), true);
 		}
-
+		
 		
 		$request = service('request');
 
-		if(!empty($request->getPost())){
+		if($request->getPost()){
 			
 			$result = $this->user_m->set_user($id);
 			$data = $result;
-		}
+			
+			if($data === true){
+				return redirect()->to(base_url('user/listing') ); 
+			}else{
 
+				$request = service('request');
+				$data['enterred'] = $request->getPost();
+
+			}
+		}
+		
 		$data['roles'] = $this->user_m->get_roles();
 		
 		return view(module_view(get_class($this)).'form_v',$data);

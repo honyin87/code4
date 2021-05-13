@@ -129,3 +129,4 @@ if(file_exists(ROOTPATH . 'writable' . DIRECTORY_SEPARATOR . 'config' . DIRECTOR
  */
 defined('EMPTY_FLAG') || define('EMPTY_FLAG', '-');
 defined('PER_PAGE') || define('PER_PAGE', 10);
+defined('NO_CHG_PASSWORD') || define('NO_CHG_PASSWORD', 1111111111);

@@ -226,4 +226,30 @@ if(!function_exists("unwrap_data")) {
 	}
 }
 
+/**
+ *  Get Next Auto Increment ID From Database
+ * 
+ * SELECT LEFT(MD5(NOW()),16)
+ */
+if(!function_exists("get_auto_id")) {
+	function get_auto_id($table = '') {
+
+		$db = new \Config\Database();
+		$db_name = $db->default['database'];
+
+		$db = db_connect();
+		
+		$sql = 'SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = "'.$db_name.'" AND TABLE_NAME = "'.$table.'"';
+		
+		$query = $db->query($sql);
+
+		if($query->getNumRows() > 0){
+			return $query->getRow()->AUTO_INCREMENT;
+		}
+
+		return false;
+	}
+}
+
+
 ?>

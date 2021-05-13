@@ -16,6 +16,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="grid">
+                  <?php echo get_msg();?>
                   <div class="grid-header">
                    
                     <p>
@@ -25,7 +26,7 @@
                   </div>
                   <div class="grid-body">
                     <div class="item-wrapper">
-                      <form method="POST" action="<?php echo base_url();?>/user/form<?php !empty($uri->getSegment(3))?"/".$uri->getSegment(3):'' ;?>">
+                      <form method="POST" action="<?php echo base_url();?>/user/form<?php echo !empty($uri->getSegment(3))?"/".$uri->getSegment(3):'' ;?>">
                         <div class="row mb-3">
                           <div class="col-md-8 mx-auto">
                             <div class="form-group row showcase_row_area">
@@ -33,7 +34,7 @@
                                 <label for="username">User Name <span class="required">*</span></label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="text" class="form-control <?php echo isset($errors['username'])?'is-invalid':'';?>" id="username" name="username" placeholder="Enter User Name" value="">
+                                <input type="text" class="form-control <?php echo isset($errors['username'])?'is-invalid':'';?>" id="username" name="username" placeholder="Enter User Name" value="<?php echo isset($enterred['username'])?$enterred['username']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['username'])?$errors['username']:'';?></div>
                               </div>
                               
@@ -44,7 +45,7 @@
                                 <label for="password">Password <span class="required">*</span></label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="password" class="form-control <?php echo isset($errors['password'])?'is-invalid':'';?>" id="password" name="password" placeholder="Enter Password" value="">
+                                <input type="password" class="form-control <?php echo isset($errors['password'])?'is-invalid':'';?>" id="password" name="password" placeholder="Enter Password" value="<?php echo isset($enterred['password'])?$enterred['password']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['password'])?$errors['password']:'';?></div>
                               </div>
                             </div>
@@ -54,7 +55,7 @@
                                 <label for="firstname">First Name <span class="required">*</span></label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="text" class="form-control <?php echo isset($errors['firstname'])?'is-invalid':'';?>" id="firstname" name="firstname" placeholder="Enter First Name" value="">
+                                <input type="text" class="form-control <?php echo isset($errors['firstname'])?'is-invalid':'';?>" id="firstname" name="firstname" placeholder="Enter First Name" value="<?php echo isset($enterred['firstname'])?$enterred['firstname']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['firstname'])?$errors['firstname']:'';?></div>
                               </div>
                             </div>
@@ -63,7 +64,7 @@
                                 <label for="lastname">Last Name <span class="required">*</span></label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="text" class="form-control <?php echo isset($errors['lastname'])?'is-invalid':'';?>" id="lastname" name="lastname" placeholder="Enter Last Name" value="">
+                                <input type="text" class="form-control <?php echo isset($errors['lastname'])?'is-invalid':'';?>" id="lastname" name="lastname" placeholder="Enter Last Name" value="<?php echo isset($enterred['lastname'])?$enterred['lastname']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['lastname'])?$errors['lastname']:'';?></div>
                               </div>
                             </div>
@@ -72,7 +73,7 @@
                                 <label for="email">Email</label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="email" class="form-control <?php echo isset($errors['email'])?'is-invalid':'';?>" id="email" name="email" placeholder="Enter Email" value="">
+                                <input type="email" class="form-control <?php echo isset($errors['email'])?'is-invalid':'';?>" id="email" name="email" placeholder="Enter Email" value="<?php echo isset($enterred['email'])?$enterred['email']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['email'])?$errors['email']:'';?></div>
                               </div>
                             </div>
@@ -82,7 +83,7 @@
                                 <label for="contact_no">Contact Number</label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="number" class="form-control <?php echo isset($errors['contact_no'])?'is-invalid':'';?>" id="contact_no" name="contact_no" minlength="10" placeholder="012XXXXXXX" value="">
+                                <input type="number" class="form-control <?php echo isset($errors['contact_no'])?'is-invalid':'';?>" id="contact_no" name="contact_no" minlength="10" placeholder="012XXXXXXX" value="<?php echo isset($enterred['contact_no'])?$enterred['contact_no']:'';?>">
                                 <div class="invalid-feedback"><?php echo isset($errors['contact_no'])?$errors['contact_no']:'';?></div>
                               </div>
                             </div>
@@ -100,7 +101,7 @@
                                       foreach($roles as $role){
 
                                         ?>
-                                        <option value="<?php echo $role->id;?>"  <?php  echo (isset($search_keys['search_role']) && $search_keys['search_role'] == $role->id)?'selected':'' ?>><?php echo $role->role_name;?></option>
+                                        <option value="<?php echo $role->id;?>"  <?php  echo (isset($enterred['role']) && $enterred['role'] == $role->id)?'selected':'' ?>><?php echo $role->role_name;?></option>
                                         <?php
                                       }
                                     }

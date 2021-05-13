@@ -58,5 +58,8 @@ class Auth extends BaseController
 		url_redirect('auth');
 	}
 
+	public function test(){
+		array_debug(get_auto_id('tbl_users'));
+	}
 	
 }
