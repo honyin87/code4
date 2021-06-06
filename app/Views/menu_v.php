@@ -34,7 +34,7 @@ if($session->has('user')){
         <ul class="navigation-menu">
           <li class="nav-category-divider">MAIN</li>
           <li>
-            <a href="index.html">
+            <a href="<?php echo base_url().'/home/dashboard'; ?>">
               <span class="link-title">Dashboard</span>
               <i class="mdi mdi-gauge link-icon"></i>
             </a>
@@ -51,6 +51,18 @@ if($session->has('user')){
               <li>
                 <a href="<?php echo base_url()."/user/form"; ?>" >New User</a>
               </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#config-pages" data-toggle="collapse" aria-expanded="false">
+              <span class="link-title">Configurations</span>
+              <i class="mdi mdi-cogs link-icon"></i>
+            </a>
+            <ul class="collapse navigation-submenu" id="config-pages">
+              <li>
+                <a href="<?php echo base_url()."/config/listing"; ?>" >Configurations List</a>
+              </li>
+              
             </ul>
           </li>
           <li>

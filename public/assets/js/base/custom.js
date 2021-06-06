@@ -24,3 +24,33 @@ $(function(){
         $('.table-responsive').css( "overflow", "auto" );
     })
 });
+
+// @@ Override theme function from template.js
+// CHECK FOR CURRENT PAGE AND ADDS AN ACTIVE CLASS FOR TO THE ACTIVE LINK
+var base_url = $('meta[name="base-url"]').attr('content');console.log(base_url);
+var part = location.href.replace(base_url, '');
+var segments = location.href.replace(base_url, '').split('/').splice(1);
+var current = segments[0];
+$('.navigation-menu li a', TemplateSidebar).each(function () {
+  var $this = $(this);
+
+  $(this).parents('li').removeClass('active');
+  $(this).closest('.collapse').removeClass('show');
+
+    if ($this.attr('href').indexOf(part) !== -1) {
+        $(this).parents('li').last().addClass('active');
+        if ($(this).parents('.navigation-submenu').length) {
+          $(this).addClass('active');
+        }
+    }
+    if ($this.attr('href').indexOf(current) !== -1) {
+        $(this).parents('li').last().addClass('active');
+      if (current !== "index.html") {
+        $(this).parents('li').last().find("a").attr("aria-expanded", "true");
+        if ($(this).parents('.navigation-submenu').length) {
+          $(this).closest('.collapse').addClass('show');
+        }
+      }
+    }
+  
+});

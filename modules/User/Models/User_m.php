@@ -1,11 +1,11 @@
 <?php 
 
-namespace Modules\Auth\Models;
+namespace Modules\User\Models;
 
 use CodeIgniter\Model;
 
 
-class Auth_m extends Model
+class User_m extends Model
 {
     protected $db;
     protected $session;
